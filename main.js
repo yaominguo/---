@@ -140,78 +140,78 @@ $(".banner").hover(function () {
 	bannerplay=setInterval(autoplay,5000);
 });
 
-
-$(".itemlist li").children("img").eq(2).css({"marginTop":"1em","opacity":"1","width":"80%","width":"80%"});
-$(".itemlist li").children(".itemtext").eq(2).css({"opacity":"1"});
-var x=0;
-$(".itemlist li").click(function(){
-	x = $(this).index();
-	itemplay(x);
-});
-$('#prevbtn').click(function(){		//左边按钮点击
-	x--;
-	if(x<0){
-		x=$(".itemlist li").length-1;
-	}
-	itemplay(x);
-});
-$('#nextbtn').click(function(){    //右边按钮点击
-	x++;
-	if(x>$(".itemlist li").length-1){
-		x=0
-	}
-	itemplay(x);
-});
-function itemplay(x) {
-	var itemnum;
-	if ($(window).width() < 768) {
-		itemnum = -1;
-	} else if ($(window).width() >= 768 && $(window).width() < 935) {
-		itemnum = 1;
-	} else {
-		itemnum = 2;
-	}
-	//$(".itemlist").stop();
-	$(".itemlist").css({"width":$(".itemlist").width()+$(".itemlist").children("li").width()+"px"});
-	$(".itemlist").children("li").first().clone(true).appendTo($(".itemlist"));
-	$(".itemlist li").children("img").eq(itemnum).animate({
-		marginTop: "3em",
-		opacity: "0.7",
-		width: "60%",
-		height: "60%"
-	}, 'fast');
-	$(".itemlist li").children(".itemtext").eq(itemnum).animate({
-		opacity: "0"
-	}, 'fast');
-	$(".itemlist").animate({"marginLeft": -$(".itemlist").children("li").width() + "px"}, 'slow', function () {
-		$(".itemlist li").children("img").eq(itemnum + 1).animate({
-			marginTop: "1em",
-			opacity: "1",
-			width: "80%",
-			height: "80%"
-		}, 'fast');
-		$(".itemlist li").children(".itemtext").eq(itemnum + 1).animate({
-			opacity: "1"
-		}, 'fast');
-		$(".itemlist").children().first().remove();
-		$(".itemlist").css({"marginLeft": "0"});
-	});
-}
-function itemboxplay() {
-	x=x+1;
-	if(x<=5){
-		itemplay(x);
-	}else{
-		x=0;
-		itemplay(x);
-	}
-}
-var itemboxauto=setInterval(itemboxplay,4000);
-$(".itembox").hover(function () {
-	clearInterval(itemboxauto);
-}, function () {
-	itemboxauto=setInterval(itemboxplay,4000);
-});
+// 
+// $(".itemlist li").children("img").eq(2).css({"marginTop":"1em","opacity":"1","width":"80%","width":"80%"});
+// $(".itemlist li").children(".itemtext").eq(2).css({"opacity":"1"});
+// var x=0;
+// $(".itemlist li").click(function(){
+// 	x = $(this).index();
+// 	itemplay(x);
+// });
+// $('#prevbtn').click(function(){		//左边按钮点击
+// 	x--;
+// 	if(x<0){
+// 		x=$(".itemlist li").length-1;
+// 	}
+// 	itemplay(x);
+// });
+// $('#nextbtn').click(function(){    //右边按钮点击
+// 	x++;
+// 	if(x>$(".itemlist li").length-1){
+// 		x=0
+// 	}
+// 	itemplay(x);
+// });
+// function itemplay(x) {
+// 	var itemnum;
+// 	if ($(window).width() < 768) {
+// 		itemnum = -1;
+// 	} else if ($(window).width() >= 768 && $(window).width() < 935) {
+// 		itemnum = 1;
+// 	} else {
+// 		itemnum = 2;
+// 	}
+// 	//$(".itemlist").stop();
+// 	$(".itemlist").css({"width":$(".itemlist").width()+$(".itemlist").children("li").width()+"px"});
+// 	$(".itemlist").children("li").first().clone(true).appendTo($(".itemlist"));
+// 	$(".itemlist li").children("img").eq(itemnum).animate({
+// 		marginTop: "3em",
+// 		opacity: "0.7",
+// 		width: "60%",
+// 		height: "60%"
+// 	}, 'fast');
+// 	$(".itemlist li").children(".itemtext").eq(itemnum).animate({
+// 		opacity: "0"
+// 	}, 'fast');
+// 	$(".itemlist").animate({"marginLeft": -$(".itemlist").children("li").width() + "px"}, 'slow', function () {
+// 		$(".itemlist li").children("img").eq(itemnum + 1).animate({
+// 			marginTop: "1em",
+// 			opacity: "1",
+// 			width: "80%",
+// 			height: "80%"
+// 		}, 'fast');
+// 		$(".itemlist li").children(".itemtext").eq(itemnum + 1).animate({
+// 			opacity: "1"
+// 		}, 'fast');
+// 		$(".itemlist").children().first().remove();
+// 		$(".itemlist").css({"marginLeft": "0"});
+// 	});
+// }
+// function itemboxplay() {
+// 	x=x+1;
+// 	if(x<=5){
+// 		itemplay(x);
+// 	}else{
+// 		x=0;
+// 		itemplay(x);
+// 	}
+// }
+// var itemboxauto=setInterval(itemboxplay,4000);
+// $(".itembox").hover(function () {
+// 	clearInterval(itemboxauto);
+// }, function () {
+// 	itemboxauto=setInterval(itemboxplay,4000);
+// });
 
 
 $(".appwindow li").css("opacity","0").first().css("opacity","1");
